@@ -71,7 +71,7 @@ struct convert<std::string> {
 
 template <>
 struct convert<unsigned char> {
-  static Node encode(const unsigned char& rhs) { Node n; n = rhs; return n; }
+  static Node encode(const unsigned char& rhs) { return Node(std::to_string(rhs)); }
 
   static bool decode(const Node& node, unsigned char& rhs) {
     if (node.Type() != NodeType::Scalar) {
